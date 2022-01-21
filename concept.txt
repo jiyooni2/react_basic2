@@ -130,3 +130,16 @@ TS + React State
         const [value, setValue] = useState<number|string>(1);
     
     
+any Type
+    any Type이 되는 걸 최대한 지양해야함
+    TS에게 type을 설명하려고 최대한 노력
+
+    const onChange = (event: React.FormEvent<HTMLInputElement>) =>{};
+
+    onChange 함수가 HTMLInputElement에 의해서 실행될 것이라는 걸 알 수 있음
+    이벤트는 form으로 부터오고, HTMLInputElement가 이 이벤트를 발생시킴
+
+declaration file(library.d.ts)
+    이전에 설치해놓은 파일을 override
+    styled components의 테마 정의를 확장
+    안에 보면 알겠지만 단순히 인터페이스를 모아서 정의해놓은 것
