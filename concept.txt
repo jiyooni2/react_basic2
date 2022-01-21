@@ -1,0 +1,132 @@
+Styled Component
+    dark mode, light mode 이런거 쉬움
+    전역으로 import css하면, application 전체에 적용
+
+    class 자동으로 설정
+
+    const Father = styled.div`
+      display: flex;(CSS code)
+    `;
+
+      and use <Father></Father>
+
+    구현 부분에는 style을 따로 적지 않음
+
+    props사용 가능
+    
+extending(상속)
+    const Circle = styled(Box)`
+    border-radius:50%;
+    `   
+        Box의 style 복붙하는거랑 같은 효과
+
+As
+    const Btn = styled.button`
+    color: white;
+    `;
+    
+    똑같은 style 갖는 a tag를 갖고 싶을 때,
+    <Btn as="a"></Btn>
+
+attrs    
+    const Input = styled.input.attrs({required:true})`
+    background-color: tomato;
+    `;
+    
+    앞으로 생성될 모든 Input component에 attrs를 붙여줌
+    
+selector in styled component
+    styled component 안에서 targeting 가능
+        span{css}
+        
+        span{
+            &:hover{
+
+            } = span:hover{}
+        }
+
+        <Component>
+        Emoji{
+
+        }
+    
+
+Theme
+    import { ThemeProvider } from "styled-components";
+    <ThemeProvider theme={theme}>
+        <App/>
+    </ThemeProvider>
+    
+    App에서 ThemeProvider의 props에 접근 가능
+
+
+TypeScript
+    JS + type
+    JS : type 신경도 안씀
+        연산이 생각처럼 안될때도 있고, type보장이 안됨
+    프로그램이 작동하기 전에 TS가 실수를 알려줄 것
+
+    const plus = (a:number,b:number) => a + b;
+    plus(4,2);
+    plus("4",2); 하면, error
+
+    Browser -> JS engine만 있고 TS engine은 없음, 이해 못함
+    사용자게게 publish 할때 TS가 compile해서 JS로 바꿔줌
+    별 문제가 없는게 확인되면 평범한 JS 코드를 return
+    
+Adding TS to create-react-app
+    npx create-react-app my-app --template typescript
+
+    typescript : .ts
+    typescript+react : .tsx
+
+Packages, Libraries -> made by JS
+    TS : 코드 실행 전에 오류로 알려줌
+        npm install --save-dev @types/styled-components
+
+        @type : TS가 styled-component 해석할 수 있게 해줌
+        Typescript Definition
+
+How to type Component?
+    component가 필요로 하는 prop을 넘겨주지 않으면 에러가 남
+        >protection
+    
+    PropTypes : 코드를 실행한 후에 확인 가능
+    TS : 코드 실행 전에 알고 오류를 수정
+
+    interface : TS에게 object shape 알려줌
+
+    interface CircleProps {
+        bgColor: string;
+        }
+
+    function Circle({ bgColor }: CircleProps) {
+        return <Container />;
+    }
+
+
+    interface PlayerShape{
+        name:string;
+        age:string;
+    }
+
+    const sayHello = (playerObj:PlayerShape)=>{
+        console.log(playerObj.age,playerObj.name);
+    }
+
+    optional props(using ?)
+
+    default props(using ??)
+
+
+TS + React State
+    change the state => refresh your component
+
+    const [counter, setCounter] = useState(1);
+    counter:number로 type.
+    만약 setCounter에서 string을 넘기면, error
+    
+    string 이거나 number가 되도록 하고싶다면
+        const [value, setValue] = useState<number|string>(1);
+    
+    
