@@ -5,7 +5,7 @@ import Coin from "./routes/Coin";
 
 function Router() {
   return (
-    <Routes>
+    <Routes basename="/react_basic2">
       <Switch>
         <Route path="/:coinId">
           <Coin />
