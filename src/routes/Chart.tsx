@@ -22,15 +22,27 @@ function Chart({ coinId }: ChartProps) {
     fetchCoinHistory(coinId)
   );
 
-  console.log(coinId);
+  const priceObj = data?.map((value) => {
+    const date = value.time_open.split("T")[0].split("-");
+    const numDate = date.map((value) => Number(value));
+    return {
+      x: new Date(numDate[0], numDate[1], numDate[2]),
+      y: [value.open, value.high, value.low, value.close],
+    };
+  });
+
   return (
     <div>
       {isLoading ? (
         "Loading Chart..."
       ) : (
         <ApexChart
-          type="line"
-          series={[{ name: "price", data: data?.map((price) => price.close) }]}
+          type="candlestick"
+          series={[
+            {
+              data: priceObj,
+            },
+          ]}
           options={{
             theme: {
               mode: "dark",
@@ -48,13 +60,15 @@ function Chart({ coinId }: ChartProps) {
               curve: "smooth",
               width: 4,
             },
-            yaxis: {
-              show: false,
-            },
             xaxis: {
-              axisBorder: { show: false },
-              axisTicks: { show: false },
-              labels: { show: false },
+              labels: {
+                show: false,
+              },
+            },
+            yaxis: {
+              labels: {
+                show: false,
+              },
             },
           }}
         />

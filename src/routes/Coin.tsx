@@ -13,6 +13,8 @@ import Price from "./Price";
 import { fetchCoinInfo, fetchCoinTickers } from "./../api";
 import { useQuery } from "react-query";
 import { Helmet } from "react-helmet";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUndo } from "@fortawesome/free-solid-svg-icons";
 
 const Overview = styled.div`
   display: flex;
@@ -49,7 +51,15 @@ const Header = styled.header`
   align-items: center;
 `;
 
+const Back = styled.div`
+  margin-right: auto;
+`;
+
 const Title = styled.h1`
+  padding-right: auto;
+  flex-basis: 300px;
+  text-align: left;
+
   font-size: 48px;
   color: ${(props) => props.theme.textColor};
 `;
@@ -171,10 +181,16 @@ function Coin() {
         </title>
       </Helmet>
       <Header>
+        <Back>
+          <Link to={"/"}>
+            <FontAwesomeIcon icon={faUndo} />
+          </Link>
+        </Back>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
         </Title>
       </Header>
+
       {loading ? (
         <Loader>Loading...</Loader>
       ) : (
@@ -216,7 +232,7 @@ function Coin() {
 
           <Switch>
             <Route path={`/:coinId/price`}>
-              <Price />
+              <Price coinId={coinId} />
             </Route>
             <Route path={`/:coinId/chart`}>
               <Chart coinId={coinId} />

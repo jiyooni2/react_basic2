@@ -72,7 +72,6 @@ function App() {
     <Fragment>
       <GlobalStyle />
       <Router />
-      <ReactQueryDevtools initialIsOpen={true} />
     </Fragment>
   );
 }
