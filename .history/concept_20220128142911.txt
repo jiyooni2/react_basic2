@@ -235,9 +235,6 @@ https://tkdodo.eu/blog/react-query-render-optimizations
     2.const { isLoading, data } = useQuery("queryKey", fetcher);
         fetcher function 끝나면 data에 넣어주고, 연산중이라면 isLoading=true
         queryKey : query를 고유하게 구별해주는 키
-        3번째 param : option
-        refetchInterval를 설정하면, 자동으로 일정시간 지나면 refetch
-        백그라운드에서 refetch, UI update(바뀐부분만)
 
     react query는 데이터를 캐쉬에 저장함
         계속 fetch 다시 하는 걸 막아줌, 서버비용 줄임
@@ -255,7 +252,4 @@ useParams 무작정 사용하기보다는 이미 있다면, props를 통해 보�
 Chart
     ApexChart.js
     npm install react-apexcharts apexcharts
-    documentation 보면서 customize
-
-react-helmet
-    여기서 무엇을 render하면 문서의 head로감
+    documentation 보면서 조정

@@ -256,6 +256,3 @@ Chart
     ApexChart.js
     npm install react-apexcharts apexcharts
     documentation 보면서 customize
-
-react-helmet
-    여기서 무엇을 render하면 문서의 head로감
