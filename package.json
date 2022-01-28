@@ -57,5 +57,6 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.20"
   },
-  "homepage": "https://kjy5657.github.io/react_basic2"
+  "homepage": "https://kjy5657.github.io/",
+  "name": "react_basic2"
 }
