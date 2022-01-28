@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/github.io/react_basic2/static/js/main.abb151d8.js",
-    "index.html": "/github.io/react_basic2/index.html",
-    "main.abb151d8.js.map": "/github.io/react_basic2/static/js/main.abb151d8.js.map"
+    "main.js": "/react_basic2/static/js/main.a0b22780.js",
+    "index.html": "/react_basic2/index.html",
+    "main.a0b22780.js.map": "/react_basic2/static/js/main.a0b22780.js.map"
   },
   "entrypoints": [
-    "static/js/main.abb151d8.js"
+    "static/js/main.a0b22780.js"
   ]
 }
